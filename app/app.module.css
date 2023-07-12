@@ -12,8 +12,9 @@
     position: sticky;
     top: 0;
 }
-.postsList {
+.posts {
     font-size: 1rem;
+    color: white;
     background-color: rebeccapurple;
     width: 100px;
     height: 30px;
@@ -23,4 +24,64 @@
     text-align: center;
     position: relative;
     left: 200px;
+}
+.posts:hover {
+    color: lightblue;
+}
+.main {
+    width: 700px;
+    margin: 0 auto;
+}
+@media (max-width: 720px) {
+    .main {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+}
+.form {
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+}
+.form label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.input, .select, .textarea{
+    max-width: 100%;
+    font-size: 16px;
+    outline: 0;
+    display: block;
+    padding: 10px;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+    box-shadow: 0 0 5px blue;
+    border: 1px solid blue;
+}
+.button {
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+    background-color: cornflowerblue;
+    color: white;
+    cursor:pointer;
+    border: none;
+    border-radius: 10px;
+}
+.postItem {
+    border:2px solid black;
+    border-radius: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.postTitle {
+    font-size: 24px;
+    font-weight: bold;
 }
