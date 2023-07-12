@@ -1,0 +1,26 @@
+.top {
+    width: 100%;
+    height: 20%;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: mediumpurple;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+.postsList {
+    font-size: 1rem;
+    background-color: rebeccapurple;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    text-decoration: underline;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+    left: 200px;
+}
