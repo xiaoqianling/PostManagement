@@ -43,8 +43,9 @@ function PostItem({post}) {
             <span>By {author}</span>
             <i>{time}</i>
         </div>
-        <div>{post.content}</div>
-        <div>{emojiList}</div>
+        <div className={style.content}>{post.content}</div>
+        <div className={style.emoji}>{emojiList}</div>
+        <button className={style.viewPost} type={"button"}>View Post</button>
     </article>
 }
 

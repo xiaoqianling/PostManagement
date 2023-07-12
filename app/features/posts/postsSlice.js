@@ -1,5 +1,4 @@
 import {createSlice, nanoid} from '@reduxjs/toolkit'
-import {reducer} from "next/dist/client/components/router-reducer/router-reducer";
 
 
 const initialState = {
@@ -79,7 +78,7 @@ const postsSlice = createSlice({
 export const selectAllPosts = store => store.post.posts;
 export const selectPostById = (store, id) => store.post.posts.find(post => post.id === id)
 export const {
-    postAdded,
+    postAdd,
     postUpdate,
     reactionAdd
 } = postsSlice.actions;

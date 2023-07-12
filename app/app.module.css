@@ -12,6 +12,7 @@
     position: sticky;
     top: 0;
 }
+
 .posts {
     font-size: 1rem;
     color: white;
@@ -25,32 +26,38 @@
     position: relative;
     left: 200px;
 }
+
 .posts:hover {
     color: lightblue;
 }
+
 .main {
     width: 700px;
     margin: 0 auto;
 }
+
 @media (max-width: 720px) {
     .main {
         width: 100%;
         margin: 0 auto;
     }
-    
+
 }
+
 .form {
     white-space: nowrap;
     display: flex;
     flex-direction: column;
 }
+
 .form label {
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 5px;
 }
-.input, .select, .textarea{
+
+.input, .select, .textarea {
     max-width: 100%;
     font-size: 16px;
     outline: 0;
@@ -64,24 +71,74 @@
     box-shadow: 0 0 5px blue;
     border: 1px solid blue;
 }
-.button {
+
+.saveButton {
     margin-top: 20px;
     width: 100px;
     height: 40px;
-    background-color: cornflowerblue;
     color: white;
-    cursor:pointer;
+    background-color: cornflowerblue;
+    cursor: pointer;
     border: none;
     border-radius: 10px;
 }
+.saveButton:enabled {
+    background-color: blue;
+}
 .postItem {
-    border:2px solid black;
+    margin: 20px auto;
+    border: 2px solid #262626;
     border-radius: 10px;
-    height: 200px;
     display: flex;
     flex-direction: column;
+    padding: 5px;
+}
+.postItem button{
+    font-size: 16px;
+}
+.postItem button:hover {
+    border-color: black;
+    cursor: pointer;
 }
 .postTitle {
     font-size: 24px;
     font-weight: bold;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.postInfo {
+    margin: 10px auto 15px 10px;
+}
+
+.postInfo > span {
+    margin-right: 30px;
+}
+
+.content {
+    margin-left: 10px;
+}
+
+.emoji {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.emoji button {
+    width: 70px;
+    height: 40px;
+    outline: 0;
+    background-color: white;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+.viewPost {
+    margin: 10px auto auto 10px;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    outline: 0;
+    background-color: white;
+    border: 1px solid #d2d2d2;
 }
