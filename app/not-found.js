@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NotFound(props)
+function NotFound()
 {
     return (
         <div style={{margin:"auto auto", fontSize:'1rem'}}>
