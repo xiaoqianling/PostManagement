@@ -1,0 +1,40 @@
+.postBox {
+    border: 3px solid pink;
+    width: 700px;
+    margin: 20px auto;
+}
+.girlImg {
+    display: block;
+    aspect-ratio: auto 108/108;
+    clip-path: circle(50%);
+    margin: 10px auto;
+}
+.essay {
+ margin: 10px 10px;
+}
+.essayTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+.essayContent {
+    font-size: 18px;
+    text-indent: 2em;
+    text-align: justify;
+}
+.linkBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+.link {
+    margin-top: 20px;
+    color: #0070f3;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+}
+.link:hover {
+    color: pink;
+}

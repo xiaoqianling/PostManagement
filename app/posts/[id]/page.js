@@ -1,24 +1,51 @@
-"use client";
+'use client';
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {getAllPaths, selectPostById} from "@/app/features/posts/postsSlice";
+import {notFound} from "next/navigation";
+import style from './post.module.css'
+import Image from "next/image";
+import EmojiBar from "@/Components/EmojiBar";
+import Link from "next/link";
+import {metadata} from "@/app/page";
 
 export const dynamicParams = false;
+
 export async function generateStaticParams() {
-    const paths = useSelector(getAllPaths)
-    console.log("paths:",paths)
-    return paths;
+    return useSelector(getAllPaths);
 }
 
 function Page({params}) {
-    console.log(params)
+    let content;
     const post = useSelector(store => selectPostById(store, params.id))
-
+    if (post === undefined) {
+        content = "没有找到该文章";
+        metadata.title = "404 notfound"
+        notFound();
+    } else {
+        content = <Post post={post}/>;
+        metadata.title = "QL: "+post.title;
+    }
     return (
-        <div>
-            <h2>{post.title}</h2>
+        <div className={style.postBox}>
+            {content}
         </div>
     );
+}
+
+function Post({post}) {
+    return <div>
+        <Image className={style.girlImg} src={'/img/girl.jpg'} alt={"girl"} width={108} height={108}/>
+        <div className={style.essay}>
+            <div className={style.essayTitle}>{post.title}</div>
+            <p className={style.essayContent}>{post.content}</p>
+            <EmojiBar post={post}/>
+            <div className={style.linkBar}>
+                <Link className={style.link} href={'/'}>回到文章列表</Link>
+                <Link className={style.link} href={`/edit/${post.id}`}>编辑该文章</Link>
+            </div>
+        </div>
+    </div>
 }
 
 export default Page;

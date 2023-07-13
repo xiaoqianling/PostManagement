@@ -93,13 +93,6 @@
     flex-direction: column;
     padding: 5px;
 }
-.postItem button{
-    font-size: 16px;
-}
-.postItem button:hover {
-    border-color: black;
-    cursor: pointer;
-}
 .postTitle {
     font-size: 24px;
     font-weight: bold;
@@ -119,20 +112,6 @@
     margin-left: 10px;
 }
 
-.emoji {
-    margin-top: 20px;
-    margin-left: 5px;
-}
-
-.emoji button {
-    width: 70px;
-    height: 40px;
-    outline: 0;
-    background-color: white;
-    border: 1px solid #d2d2d2;
-    border-radius: 5px;
-    margin: 0 5px;
-}
 .viewPost {
     margin: 10px auto auto 10px;
     width: 120px;

@@ -93,7 +93,6 @@ export const getAllPaths = store => {
     store.post.posts.forEach(post => {
         response.push({id: post.id})
     });
-    console.log(response)
     return response;
 }
 export const {
