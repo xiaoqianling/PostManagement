@@ -19,6 +19,7 @@
     "@reduxjs/toolkit": "^1.6.1",
     "react-redux": "^7.2.4",
     "redux": "^4.2.1",
-    "date-fns": "^2.30.0"
+    "date-fns": "^2.30.0",
+    "@faker-js/faker": "^8.0.2"
   }
 }

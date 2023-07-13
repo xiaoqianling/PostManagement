@@ -1,14 +1,35 @@
 "use client";
 import style from './app.module.css'
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {reactionAdd, selectAllPosts} from "@/app/features/posts/postsSlice";
+import {fetchPosts, getAllPaths, reactionAdd, selectAllPosts, selectPostById} from "@/app/features/posts/postsSlice";
 import {formatDistanceToNow, parseISO} from "date-fns";
+import Link from "next/link";
+import {store} from "@/app/features/store";
+import {log} from "next/dist/server/typescript/utils";
 
 
 function PostsList(props) {
     const posts = useSelector(selectAllPosts);
-    const list = posts.slice().sort().map(post => <PostItem key={post.id} post={post}/>)
+    const dispatch = useDispatch();
+    const status = useSelector(state => state.post.status);
+    const error = useSelector(state => state.post.error);
+
+    useEffect(() => {
+        if (status === 'idle') {
+            dispatch(fetchPosts());
+        }
+    }, [status, dispatch]);
+
+    let list;
+    if (status === "loading") {
+        list = <div>还在加载，别急</div>
+    } else if (status === "succeeded") {
+        list = posts.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(post => <PostItem key={post.id} post={post}/>);
+    } else {
+        list = <div>Error:{error}</div>
+    }
+
     return (
         <div className={style.postsList}>
             <h1>Posts</h1>
@@ -26,7 +47,6 @@ function PostItem({post}) {
         rocket: '🚀',
         eyes: '👀'
     }
-
     const emojiList = Object.entries(reactionEmoji).map(([name, emoji] )=>
         <button key={name} type={"button"}
                 onClick={() => dispatch(reactionAdd({
@@ -45,7 +65,7 @@ function PostItem({post}) {
         </div>
         <div className={style.content}>{post.content}</div>
         <div className={style.emoji}>{emojiList}</div>
-        <button className={style.viewPost} type={"button"}>View Post</button>
+        <Link href={`posts/${post.id}`} className={style.viewPost} type={"button"}>View Post</Link>
     </article>
 }
 

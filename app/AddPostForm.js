@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import style from './app.module.css'
 import {useDispatch} from "react-redux";
 import {postAdd} from "@/app/features/posts/postsSlice";
+import {worker} from "@/app/api/api";
 
 function AddPostForm(props) {
     const [title, setTitle] = useState("");
