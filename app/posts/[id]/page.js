@@ -5,14 +5,25 @@ import {getAllPaths, selectPostById} from "@/app/features/posts/postsSlice";
 import {notFound} from "next/navigation";
 import style from './post.module.css'
 import Image from "next/image";
-import EmojiBar from "@/Components/EmojiBar";
+import EmojiBar from "@/app/components/EmojiBar";
 import Link from "next/link";
 import {metadata} from "@/app/page";
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-    return useSelector(getAllPaths);
+    return GetPaths();
+}
+
+/**
+ * 为什么要搞个函数来返回useSelector？
+ * React的hook只能在组件内部(函数式组件首字母要大写)或自定义组件(函数以use开头)内部使用
+ * 直接在上面的函数使用显然不符合其中一种条件，无法生成
+ * 而generateStaticParams是next指定的静态生成页面路径 函数名不能变
+ * 在矛盾下采用了这种方式：用一个首字母大写的函数调用useSelector。
+ */
+function GetPaths() {
+    return useSelector(getAllPaths)
 }
 
 function Page({params}) {

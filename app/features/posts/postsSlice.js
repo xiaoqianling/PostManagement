@@ -96,6 +96,8 @@ export const getAllPaths = store => {
     return response;
 }
 export const {
-    postAdd, postUpdate, reactionAdd
+    postAdd,
+    postUpdate,
+    reactionAdd
 } = postsSlice.actions;
 export default postsSlice.reducer;

@@ -2,15 +2,13 @@
 import style from './app.module.css'
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {fetchPosts, getAllPaths, reactionAdd, selectAllPosts, selectPostById} from "@/app/features/posts/postsSlice";
+import {fetchPosts, selectAllPosts} from "@/app/features/posts/postsSlice";
 import {formatDistanceToNow, parseISO} from "date-fns";
 import Link from "next/link";
-import {store} from "@/app/features/store";
-import {log} from "next/dist/server/typescript/utils";
-import EmojiBar from "@/Components/EmojiBar";
+import EmojiBar from "@/app/components/EmojiBar";
 
 
-function PostsList(props) {
+function PostsList() {
     const posts = useSelector(selectAllPosts);
     const dispatch = useDispatch();
     const status = useSelector(state => state.post.status);
@@ -40,7 +38,6 @@ function PostsList(props) {
 }
 
 function PostItem({post}) {
-    const dispatch = useDispatch();
     const author = post.user? post.user : "Unknown Author"
     const time = formatDistanceToNow(parseISO(post.date));
     return <article className={style.postItem}>
